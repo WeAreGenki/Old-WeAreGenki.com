@@ -1,0 +1,36 @@
+{
+  "name": "wearegenki",
+  "version": "1.0.0",
+  "description": "Hugo theme for wearegenki.com",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "cssnano": "*",
+    "del": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-consolidate": "*",
+    "gulp-cssnano": "*",
+    "gulp-csso": "*",
+    "gulp-group-css-media-queries": "*",
+    "gulp-gzip": "*",
+    "gulp-htmlmin": "*",
+    "gulp-iconfont": "*",
+    "gulp-if": "*",
+    "gulp-md5-plus": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-svgmin": "*",
+    "gulp-uglify": "*",
+    "gulp-uncss": "*",
+    "gulp-util": "*",
+    "lodash": "*",
+    "node-notifier": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Max Milton <max@wearegenki.com>",
+  "license": "Not for use on anywhere other than wearegenki.com"
+}

@@ -1,0 +1,12 @@
+name = "wearegenki"
+author = "Oskar Kornecki"
+description = "Original official hugo site theme for wearegenki.com"
+version = "1.6.0"
+// 1.6.0: Various tweaks
+// 1.5.0: Kerning on logo + tweaked colours of hero and highlight
+// 1.4.0: Finished new homepage + flater style + rename to wearegenki
+// 1.3.0: Redesign the homepage hero section
+// 1.2.0: Cleaner styles + smaller CSS
+
+license = "Not for use outside of We Are Genki"
+#source_repo = "https://github.com/WeAreGenki/hugo-wearegenki"

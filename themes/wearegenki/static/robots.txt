@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://wearegenki.com/sitemap.xml

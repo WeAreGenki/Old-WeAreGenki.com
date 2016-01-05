@@ -1,0 +1,23 @@
+// Load Bootstrap variable first
+@import "bootstrap/variables";
+// Load theme variables
+@import "variables";
+
+
+/* Special styles for old Internet Explorer browsers < IE9 */
+
+// Prevent double scroll bars in IE7
+body { overflow: auto; }
+
+// No link hover animation so revert to expected link hover state
+#dope a:hover { text-decoration: underline; }
+
+// Prevent web fonts looking jagged
+.navbar-header > a,
+.navbar-nav > li > a,
+.dropdown-menu > li > a,
+h1, h2, h3, h4, p,
+footer {
+	filter: unquote("progid:DXImageTransform.Microsoft.AlphaImageLoader(src=hIEfix.png,sizingMethod=crop)");
+	zoom: 1;
+}

@@ -1,0 +1,27 @@
+// README: _icons.scss is automatically generted from template file.
+
+// README: Based partially on:
+//  ↳ This - https://github.fm/cognitom/symbols-for-sketch/blob/master/templates/fontawesome-style.css
+//  ↳ FontAwesome - https://github.com/FortAwesome/Font-Awesome/blob/master/scss/_core.scss
+
+@font-face {
+    font-family: "<%= fontName %>";
+    src: url('<%= fontPath %><%= fontName %>.eot');
+    src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+        url('<%= fontPath %><%= fontName %>.woff2') format('woff2'),
+        url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+        url('<%= fontPath %><%= fontName %>.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.<%= className %>:before {
+    display: inline-block;
+    font: normal normal normal $font-size-base/1 "<%= fontName %>";
+    text-rendering: auto; // Cross browser compatibility
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0); // Ensures no half-pixel rendering in firefox
+}
+
+<% _.each(glyphs, function(glyph) { %>.<%= className %>-<%= glyph.name %>:before { content: "\<%= glyph.unicode %>" }
+<% }); %>

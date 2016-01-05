@@ -1,0 +1,9 @@
+We Are Genki is a Customer Experience (CX) Consultancy based in Sydney, Australia. This website has been handcrafted by our expert team.
+
+Looking to work at place where your ideas could impact millions of people? See http://wearegenki.com/work-at-genki.html
+
+# LICENCES #
+
++ Bootstrap CSS (http://getbootstrap.com/) MIT License, (c) 2015 Twitter
++ Normalize.css (http://necolas.github.io/normalize.css/) MIT License
++ Icons by Freepik (www.freepik.com) CC BY 3.0
