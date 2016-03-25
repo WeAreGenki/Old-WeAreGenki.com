@@ -5,127 +5,129 @@
 <html lang="en-AU">
 
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%7CMerriweather+Sans:300,400,400italic,600">
-    <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%7CMerriweather+Sans:300,400,400italic,600">
+  <link rel="stylesheet" href="/css/theme.css">
 
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//ajax.googleapis.com">
 
-    {{ if eq .URL "/" }}
-    <!-- Unique title & meta description on homepage -->
-    <title>{{ .Site.Title }} - {{ .Site.Params.slogan }}</title>
-    <meta name="description" content="{{ .Site.Params.description }}">
-    {{ else if eq .URL "/magento-themes.html" }}
-    <!-- Unique meta description for magento-themes.html -->
-    <!-- TODO: This page also needs to be added to the sitemap. How can this be done? -->
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
-    <meta name="description" content="We Are Genki Magento themes set the tone for a great user experience, higher conversion rates, user trust, webpage load performance, and more.">
-    {{ else }}
-    <!-- Unique title & meta description on each page -->
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
-    <meta name="description" content="{{ .Description }}">
-    {{ end }}
+  {{ if eq .URL "/" }}
+  <!-- Unique title & meta description on homepage -->
+  <title>{{ .Site.Title }} - {{ .Site.Params.slogan }}</title>
+  <meta name="description" content="{{ .Site.Params.description }}">
+  {{ else if eq .URL "/magento-themes.html" }}
+  <!-- Unique meta description for magento-themes.html -->
+  <!-- TODO: This page also needs to be added to the sitemap. How can this be done? -->
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <meta name="description" content="We Are Genki Magento themes set the tone for a great user experience, higher conversion rates, user trust, webpage load performance, and more.">
+  {{ else }}
+  <!-- Unique title & meta description on each page -->
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <meta name="description" content="{{ .Description }}">
+  {{ end }}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="canonical" href="{{ .Permalink }}">
-    <meta name="theme-color" content="#308ad8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta name="theme-color" content="#308ad8">
 
-    <!-- Fallback when JavaScript is disabled to show sub-menu -->
-    <noscript><style>.dropdown:hover .dropdown-menu{display: block}</style></noscript>
+  <!-- Fallback when JavaScript is disabled to show sub-menu -->
+  <noscript><style>.dropdown:hover .dropdown-menu{display: block}</style></noscript>
 
-    <!-- IE6-8 styles & HTML5 support -->
-    {{ "<!--[if lt IE 9]>" | safeHTML }}
-    <script src="/js/html5shiv.min.js"></script>
-    <script src="/js/respond.min.js"></script>
-    <link rel="stylesheet" href="/css/ie.css">
-    {{ "<![endif]-->" | safeHTML }}
+  <!-- IE6-8 styles & HTML5 support -->
+  {{ "<!--[if lt IE 9]>" | safeHTML }}
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <link rel="stylesheet" href="/css/ie.css">
+  {{ "<![endif]-->" | safeHTML }}
 
-    <!-- Google Analytics -->
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
-    <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', 'UA-60278224-1', 'auto');
-        ga('send', 'pageview');
-    </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-60278224-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 
-    <!-- Critical path measurement -->
-    <!-- <script>
-      function measureCRP() {
-        var t = window.performance.timing,
-          interactive = t.domInteractive - t.domLoading,
-          dcl = t.domContentLoadedEventStart - t.domLoading,
-          complete = t.domComplete - t.domLoading;
-        var stats = document.createElement('pre');
-        stats.className = 'measureCRP';
-        stats.textContent = 'interactive: ' + interactive + 'ms, ' +
-            'dcl: ' + dcl + 'ms, complete: ' + complete + 'ms';
-        document.body.appendChild(stats);
-      }
-    </script>
-    <style>.measureCRP {background: #000; color: red; position: fixed; bottom: 0; padding: 0 5px;}</style> -->
+  <!-- Critical path measurement -->
+  <!--
+  <script>
+    function measureCRP() {
+      var t = window.performance.timing,
+        interactive = t.domInteractive - t.domLoading,
+        dcl = t.domContentLoadedEventStart - t.domLoading,
+        complete = t.domComplete - t.domLoading;
+      var stats = document.createElement('pre');
+      stats.className = 'measureCRP';
+      stats.textContent = 'interactive: ' + interactive + 'ms, ' +
+          'dcl: ' + dcl + 'ms, complete: ' + complete + 'ms';
+      document.body.appendChild(stats);
+    }
+  </script>
+  <style>.measureCRP {background: #000; color: red; position: fixed; bottom: 0; padding: 0 5px;}</style>
+  -->
 
-    <meta name="robots" content="noodp">
+  <meta name="robots" content="noodp">
 </head>
 
 <!-- <body onload="measureCRP()"> -->
 <body>
 
-    <div id="main"> <!-- For nice ajax page transitions via jquery.smoothState.js -->
+<div id="main"> <!-- For nice ajax page transitions via jquery.smoothState.js -->
 
-        {{if eq .URL "/"}}
-        <div id="hero-home">
-        {{end}}
+  {{if eq .URL "/"}}
+  <div id="hero-home">
+  {{end}}
 
-            <noscript>
-                <div class="alert alert-danger" role="alert">
-                    <div class="container text-center">
-                        <small>Warning: Enable JavaScript to get a full-featured experience.</small>
-                    </div>
-                </div>
-            </noscript>
+  <noscript>
+    <div class="alert alert-danger" role="alert">
+      <div class="container text-center">
+        <small>Warning: Enable JavaScript to get a full-featured experience.</small>
+      </div>
+    </div>
+  </noscript>
 
-            <nav class="navbar navbar-default" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <!-- README: Kerning makes the markup look a bit strange, but the logo feels so much nicer -->
-                        <!-- <a class="navbar-brand" href="{{ .Site.BaseURL }}" title="{{ .Site.Params.description }}">{{ .Site.Title }}</a> -->
-                        <a class="navbar-brand" href="{{ .Site.BaseURL }}" title="{{ .Site.Params.description }}"><span class="kern-w">W</span>e Are <span class="kern-g">G</span>e<span class="kern-n">n</span>ki</a>
-                    </div>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- README: Kerning makes the markup look a bit strange, but the logo feels so much nicer -->
+        <!-- <a class="navbar-brand" href="{{ .Site.BaseURL }}" title="{{ .Site.Params.description }}">{{ .Site.Title }}</a> -->
+        <a class="navbar-brand" href="{{ .Site.BaseURL }}" title="{{ .Site.Params.description }}"><span class="kern-w">W</span>e Are <span class="kern-g">G</span>e<span class="kern-n">n</span>ki</a>
+      </div>
 
-                    <div class="collapse navbar-collapse" id="nav-collapse">
-                        <ul class="nav navbar-nav">
-                            {{ $currentNode := . }}
-                            {{ range .Site.Menus.main }}
-                            {{ if .HasChildren }}
-                            <li class="dropdown{{if $currentNode.HasMenuCurrent "main" . }} active{{ end }}">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    {{ range .Children }}
-                                    {{ if eq .Name "---" }}
-                                    <li class="divider"></li>
-                                    {{ else }}
-                                    <li{{ if $currentNode.IsMenuCurrent "main" . }} class="active"{{ end }}><a href="{{ .URL }}"{{ if in .URL "http" }} target="_blank"{{ end }}>{{ .Pre }}{{ .Name }}{{ .Post }}</a></li>
-                                    {{ end }}
-                                    {{ end }}
-                                </ul>
-                            </li>
-                            {{ else }}
-                            <li{{ if $currentNode.IsMenuCurrent "main" . }} class="active"{{ end }}><a href="{{ .URL }}"{{ if in .URL "http" }} target="_blank"{{ end }}>{{ .Pre }}{{ .Name }}{{ .Post }}</a></li>
-                            {{ end }}
-                            {{ end }}
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/contact.html" class="btn btn-default btn-contact">Contact Us</a></li>
-                        </ul>
-                    </div> <!-- /navbar-collapse -->
-                </div> <!-- /container -->
-            </nav>
+      <div class="collapse navbar-collapse" id="nav-collapse">
+        <ul class="nav navbar-nav">
+          {{ $currentNode := . }}
+          {{ range .Site.Menus.main }}
+          {{ if .HasChildren }}
+          <li class="dropdown{{if $currentNode.HasMenuCurrent "main" . }} active{{ end }}">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              {{ range .Children }}
+              {{ if eq .Name "---" }}
+              <li class="divider"></li>
+              {{ else }}
+              <li{{ if $currentNode.IsMenuCurrent "main" . }} class="active"{{ end }}><a href="{{ .URL }}"{{ if in .URL "http" }} target="_blank"{{ end }}>{{ .Pre }}{{ .Name }}{{ .Post }}</a></li>
+              {{ end }}
+              {{ end }}
+            </ul>
+          </li>
+          {{ else }}
+          <li{{ if $currentNode.IsMenuCurrent "main" . }} class="active"{{ end }}><a href="{{ .URL }}"{{ if in .URL "http" }} target="_blank"{{ end }}>{{ .Pre }}{{ .Name }}{{ .Post }}</a></li>
+          {{ end }}
+          {{ end }}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/contact.html" class="btn btn-default btn-contact">Contact Us</a></li>
+        </ul>
+      </div> <!-- /navbar-collapse -->
+    </div> <!-- /container -->
+  </nav>

@@ -11,25 +11,25 @@ uglyUrls = true
 disableRSS = true
 
 [params]
-    slogan = "Customer Experience Consultants"
+  slogan = "Customer Experience Consultants"
 	description = "We Are Genki is a Customer Experience Consultancy. We work with conversion orientated web companies to transform their brand experience."
 	author = "We Are Genki"
 
-#[[menu.main]]
-#    parent = "More"
-#    name = "---"
-#    weight = 60
-#    identifier = "divider 1"
+# [[menu.main]]
+#   parent = "More"
+#   name = "---"
+#   weight = 60
+#   identifier = "divider 1"
 #
-#[[menu.main]]
-#    parent = "More"
-#    name = "---"
-#    weight = 80
-#    identifier = "divider 2"
+# [[menu.main]]
+#   parent = "More"
+#   name = "---"
+#   weight = 80
+#   identifier = "divider 2"
 #
-#[[menu.main]]
-#    parent = "More"
-#    name = "Client Login"
-#    weight = 90
-#    url = "https://clients.wearegenki.com"
-#    target = "_blank"
+# [[menu.main]]
+#   parent = "More"
+#   name = "Client Login"
+#   weight = 90
+#   url = "https://clients.wearegenki.com"
+#   target = "_blank"

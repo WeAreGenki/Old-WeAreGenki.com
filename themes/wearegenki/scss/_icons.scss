@@ -5,22 +5,22 @@
 //  ↳ FontAwesome - https://github.com/FortAwesome/Font-Awesome/blob/master/scss/_core.scss
 
 @font-face {
-    font-family: "icons";
-    src: url('/fonts/icons.eot');
-    src: url('/fonts/icons.eot?#iefix') format('eot'),
-        url('/fonts/icons.woff2') format('woff2'),
-        url('/fonts/icons.woff') format('woff'),
-        url('/fonts/icons.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "icons";
+  src: url('/fonts/icons.eot');
+  src: url('/fonts/icons.eot?#iefix') format('eot'),
+    url('/fonts/icons.woff2') format('woff2'),
+    url('/fonts/icons.woff') format('woff'),
+    url('/fonts/icons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .i:before {
-    display: inline-block;
-    font: normal normal normal $font-size-base/1 "icons";
-    text-rendering: auto; // Cross browser compatibility
-    -moz-osx-font-smoothing: grayscale;
-    transform: translate(0, 0); // Ensures no half-pixel rendering in firefox
+  display: inline-block;
+  font: normal normal normal $font-size-base/1 "icons";
+  text-rendering: auto; // Cross browser compatibility
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0); // Ensures no half-pixel rendering in firefox
 }
 
 .i-coins:before { content: "\" }

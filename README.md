@@ -1,3 +1,5 @@
-# Old WeAreGenki.com Website
+# The Old Website
 
-On Github for archival purposes.
+For archival purposes.
+
+&copy; We Are Genki

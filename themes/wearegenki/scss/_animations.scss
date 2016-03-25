@@ -6,45 +6,45 @@
 
 //underline-from-center
 @mixin animate-links($duration: 0.3s) {
-    display: inline-block;
-    vertical-align: bottom; // ORIGINAL: middle
-    -webkit-transform: translateZ(0); // Safari & Android =< 4.4.4
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-backface-visibility: hidden; // Safari & Android =< 4.4.4
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    margin: -.5em; // NEW
-    padding: .5em; // NEW
-    position: relative;
-    overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom; // ORIGINAL: middle
+  -webkit-transform: translateZ(0); // Safari & Android =< 4.4.4
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden; // Safari & Android =< 4.4.4
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  margin: -.5em; // NEW
+  padding: .5em; // NEW
+  position: relative;
+  overflow: hidden;
 
-    &:before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        left: 50%;
-        right: 50%;
-        bottom: .5em; // ORIGINAL: 0
-        background: $link-color; // ORIGINAL: #2098d1
-        height: 4px;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    right: 50%;
+    bottom: .5em; // ORIGINAL: 0
+    background: $link-color; // ORIGINAL: #2098d1
+    height: 4px;
 
-        // -webkit-transition-property: left, right; // Android =< 4.3
-        // -webkit-transition-duration: $duration; // Android =< 4.3
-        // -webkit-transition-timing-function: ease-out; // Android =< 4.3
+    // -webkit-transition-property: left, right; // Android =< 4.3
+    // -webkit-transition-duration: $duration; // Android =< 4.3
+    // -webkit-transition-timing-function: ease-out; // Android =< 4.3
 
-        transition-property: left, right;
-        transition-duration: $duration;
-        transition-timing-function: ease-out;
-    }
-    
-    &:hover:before,
-    &:focus:before,
-    &:active:before {
-        left: .5em; // ORIGINAL: 0
-        right: .5em; // ORIGINAL: 0
-        bottom: .5em; // NEW
-    }
+    transition-property: left, right;
+    transition-duration: $duration;
+    transition-timing-function: ease-out;
+  }
+
+  &:hover:before,
+  &:focus:before,
+  &:active:before {
+    left: .5em; // ORIGINAL: 0
+    right: .5em; // ORIGINAL: 0
+    bottom: .5em; // NEW
+  }
 }
 
 
@@ -52,52 +52,52 @@
 
 /* fadeInUp */
 @keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translate3d(0, 30%, 0);
-    }
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 30%, 0);
+  }
 
-    100% {
-        opacity: 1;
-        transform: none;
-    }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @mixin animate-fadeinup($duration: 0.5s) {
-    animation-name: fadeInUp;
-    animation-duration: $duration;
-    transition-timing-function: ease-in;
-    animation-fill-mode: both;
+  animation-name: fadeInUp;
+  animation-duration: $duration;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
 }
 
 
 /* fadeIn */
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @mixin animate-fadein($duration: 0.5s) {
-    animation-name: fadeIn;
-    animation-duration: $duration;
-    animation-fill-mode: both;
+  animation-name: fadeIn;
+  animation-duration: $duration;
+  animation-fill-mode: both;
 }
 
 @mixin animate-fadeindelay($duration: 0.5s, $delay: 0.5s) {
-    @include animate-fadein($duration);
+  @include animate-fadein($duration);
 
-    animation-delay: $delay;
+  animation-delay: $delay;
 }
 
 
 /* fadeOut */
 @keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 @mixin animate-fadeout($duration: 0.15s) {
-    animation-name: fadeOut;
-    animation-duration: $duration;
-    animation-fill-mode: forwards; // Stop animation on last frame
+  animation-name: fadeOut;
+  animation-duration: $duration;
+  animation-fill-mode: forwards; // Stop animation on last frame
 }
