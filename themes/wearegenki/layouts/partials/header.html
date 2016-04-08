@@ -44,12 +44,14 @@
   {{ "<![endif]-->" | safeHTML }}
 
   <!-- Google Analytics -->
-  <script async src="https://www.google-analytics.com/analytics.js"></script>
   <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', 'UA-60278224-1', 'auto');
+    ga('require', 'autotrack');
     ga('send', 'pageview');
   </script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+  <script async src="/js/autotrack.js"></script>
 
   <!-- Critical path measurement -->
   <!--
