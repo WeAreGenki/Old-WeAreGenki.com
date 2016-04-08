@@ -214,7 +214,7 @@ gulp.task('zip', ['clean'], () =>
 
 // Adjust file permissions so everything is ready to go on the server
 gulp.task('permissions', ['zip'], (fetch) => {
-  exec('find ../../public/* -type d -exec chmod 550 {} \\; && find ../../public/* -type f -exec chmod 440 {} \\; && sudo find ../../public -exec chown 1010:33 {} \\;', (err, stdout, stderr) => {
+  exec('find ../../public/* -type d -exec chmod 550 {} \\; && find ../../public/* -type f -exec chmod 440 {} \\; && sudo find ../../public -exec chown 33:33 {} \\;', (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
     fetch(err);
