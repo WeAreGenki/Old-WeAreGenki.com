@@ -1,17 +1,17 @@
 <!doctype html>
 <!-- TODO: Automate the year -->
 <!-- TODO: Find a better way of doing this comment - everything I've tried with multiline strings hasn't worked -->
-{{ "<!--!\n\n'|| '||'  '|'                |                         ..|'''.|                   '||       || \n '|. '|.  .'    ....        |||    ... ..    ....     .|'     '    ....  .. ...    ||  ..  ... \n  ||  ||  |   .|...||      |  ||    ||' '' .|...||    ||    .... .|...||  ||  ||   || .'    || \n   ||| |||    ||          .''''|.   ||     ||         '|.    ||  ||       ||  ||   ||'|.    || \n    |   |      '|...'    .|.  .||. .||.     '|...'     ''|...'|   '|...' .||. ||. .||. ||. .||.\n\n     Copyright © 2015 We Are Genki, All rights reserved.\n     Looking for a job? Contact us at jobs@wearegenki.com\n\n-->" | safeHTML }}
+{{ "<!--!\n\n'|| '||'  '|'                |                         ..|'''.|                   '||       || \n '|. '|.  .'    ....        |||    ... ..    ....     .|'     '    ....  .. ...    ||  ..  ... \n  ||  ||  |   .|...||      |  ||    ||' '' .|...||    ||    .... .|...||  ||  ||   || .'    || \n   ||| |||    ||          .''''|.   ||     ||         '|.    ||  ||       ||  ||   ||'|.    || \n    |   |      '|...'    .|.  .||. .||.     '|...'     ''|...'|   '|...' .||. ||. .||. ||. .||.\n\n     Copyright © 2016 We Are Genki, All rights reserved.\n     Looking for a job? Contact us at jobs@wearegenki.com\n\n-->" | safeHTML }}
 <html lang="en-AU">
 
 <head>
   <meta charset="utf-8">
 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%7CMerriweather+Sans:300,400,400italic,600">
   <link rel="stylesheet" href="/css/theme.css">
 
   <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//ajax.googleapis.com">
 
   {{ if eq .URL "/" }}
@@ -47,6 +47,7 @@
   <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', 'UA-60278224-1', 'auto');
+    ga('require', 'linkid');
     ga('require', 'autotrack');
     ga('send', 'pageview');
   </script>
@@ -100,7 +101,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <!-- README: Kerning makes the markup look a bit strange, but the logo feels so much nicer -->
+        <!-- README: Kerning makes the markup look strange, but the logo looks better -->
         <!-- <a class="navbar-brand" href="{{ .Site.BaseURL }}" title="{{ .Site.Params.description }}">{{ .Site.Title }}</a> -->
         <a class="navbar-brand" href="{{ .Site.BaseURL }}" title="{{ .Site.Params.description }}"><span class="kern-w">W</span>e Are <span class="kern-g">G</span>e<span class="kern-n">n</span>ki</a>
       </div>

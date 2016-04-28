@@ -159,7 +159,7 @@ gulp.task('html', ['hugo'], () =>
       removeRedundantAttributes: true,
       removeEmptyAttributes: true,
       keepClosingSlash: false,
-      minifyJS: true, // FIXME: Causes the preserveLineBreaks option to not work after script tags
+      minifyJS: true,
     }))
     .pipe(gulp.dest('../../public'))
 );
