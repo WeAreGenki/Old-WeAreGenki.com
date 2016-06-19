@@ -47,7 +47,7 @@ gulp.task('init-clean', (fetch) =>
 
 // Initialise hugo
 gulp.task('init-hugo', ['init-clean'], (fetch) =>
-  exec('hugo -s ../../', (err, stdout, stderr) => {
+  exec('/usr/local/bin/hugo -s ../../', (err, stdout, stderr) => {
     console.log(stdout); // See Hugo output
     console.log(stderr); // Debugging feedback
     fetch(err);
@@ -119,7 +119,7 @@ gulp.task('js', () =>
     './static/js/bootstrap/dropdown.js',
     './static/js/bootstrap/collapse.js',
     './static/js/bootstrap/transition.js',
-    './static/js/jquery.smoothState.js',
+    './static/js/jquery.smoothState.min.js',
     './static/js/init.js',
   ])
     .pipe(concat('all.js'))
@@ -129,7 +129,7 @@ gulp.task('js', () =>
 
 // Run Hugo to copy finished files over to public folder
 gulp.task('hugo', ['css', 'js'], (fetch) =>
-  exec('hugo -s ../../', (err, stdout, stderr) => {
+  exec('/usr/local/bin/hugo -s ../../', (err, stdout, stderr) => {
     console.log(stdout); // See Hugo output
     console.log(stderr); // Debugging feedback
     fetch(err);
@@ -187,7 +187,7 @@ gulp.task('clean', ['version-css', 'version-js'], (cb) =>
   del([
     '../../public/js/bootstrap/',
     '../../public/js/jquery.particleground.min.js',
-    '../../public/js/jquery.smoothState.js',
+    '../../public/js/jquery.smoothState.min.js',
     '../../public/js/init.js',
     '../../public/fonts/icons.eot',     // Use versioned file instead
     '../../public/fonts/icons.ttf',     // Use versioned file instead
@@ -242,7 +242,7 @@ gulp.task('p', ['production'], () => {});
 
 // Standalone hugo
 gulp.task('just-hugo', (fetch) =>
-  exec('hugo -s ../../', (err, stdout, stderr) => {
+  exec('/usr/local/bin/hugo -s ../../', (err, stdout, stderr) => {
     console.log(stdout); // See Hugo output
     console.log(stderr); // Debugging feedback
     fetch(err);

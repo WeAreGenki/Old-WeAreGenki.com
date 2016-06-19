@@ -1,1 +1,479 @@
-+function(t){"use strict";function n(n){var e=n.attr("data-target");e||(e=n.attr("href"),e=e&&/#[A-Za-z]/.test(e)&&e.replace(/.*(?=#[^\s]*$)/,""));var o=e&&t(e);return o&&o.length?o:n.parent()}function e(e){e&&3===e.which||(t(a).remove(),t(r).each(function(){var o=t(this),a=n(o),r={relatedTarget:this};a.hasClass("open")&&(e&&"click"==e.type&&/input|textarea/i.test(e.target.tagName)&&t.contains(a[0],e.target)||(a.trigger(e=t.Event("hide.bs.dropdown",r)),e.isDefaultPrevented()||(o.attr("aria-expanded","false"),a.removeClass("open").trigger("hidden.bs.dropdown",r))))}))}function o(n){return this.each(function(){var e=t(this),o=e.data("bs.dropdown");o||e.data("bs.dropdown",o=new i(this)),"string"==typeof n&&o[n].call(e)})}var a=".dropdown-backdrop",r='[data-toggle="dropdown"]',i=function(n){t(n).on("click.bs.dropdown",this.toggle)};i.VERSION="3.3.5",i.prototype.toggle=function(o){var a=t(this);if(!a.is(".disabled, :disabled")){var r=n(a),i=r.hasClass("open");if(e(),!i){"ontouchstart"in document.documentElement&&!r.closest(".navbar-nav").length&&t(document.createElement("div")).addClass("dropdown-backdrop").insertAfter(t(this)).on("click",e);var s={relatedTarget:this};if(r.trigger(o=t.Event("show.bs.dropdown",s)),o.isDefaultPrevented())return;a.trigger("focus").attr("aria-expanded","true"),r.toggleClass("open").trigger("shown.bs.dropdown",s)}return!1}},i.prototype.keydown=function(e){if(/(38|40|27|32)/.test(e.which)&&!/input|textarea/i.test(e.target.tagName)){var o=t(this);if(e.preventDefault(),e.stopPropagation(),!o.is(".disabled, :disabled")){var a=n(o),i=a.hasClass("open");if(!i&&27!=e.which||i&&27==e.which)return 27==e.which&&a.find(r).trigger("focus"),o.trigger("click");var s=" li:not(.disabled):visible a",l=a.find(".dropdown-menu"+s);if(l.length){var d=l.index(e.target);38==e.which&&d>0&&d--,40==e.which&&d<l.length-1&&d++,~d||(d=0),l.eq(d).trigger("focus")}}}};var s=t.fn.dropdown;t.fn.dropdown=o,t.fn.dropdown.Constructor=i,t.fn.dropdown.noConflict=function(){return t.fn.dropdown=s,this},t(document).on("click.bs.dropdown.data-api",e).on("click.bs.dropdown.data-api",".dropdown form",function(t){t.stopPropagation()}).on("click.bs.dropdown.data-api",r,i.prototype.toggle).on("keydown.bs.dropdown.data-api",r,i.prototype.keydown).on("keydown.bs.dropdown.data-api",".dropdown-menu",i.prototype.keydown)}(jQuery),+function(t){"use strict";function n(n){var e,o=n.attr("data-target")||(e=n.attr("href"))&&e.replace(/.*(?=#[^\s]+$)/,"");return t(o)}function e(n){return this.each(function(){var e=t(this),a=e.data("bs.collapse"),r=t.extend({},o.DEFAULTS,e.data(),"object"==typeof n&&n);!a&&r.toggle&&/show|hide/.test(n)&&(r.toggle=!1),a||e.data("bs.collapse",a=new o(this,r)),"string"==typeof n&&a[n]()})}var o=function(n,e){this.$element=t(n),this.options=t.extend({},o.DEFAULTS,e),this.$trigger=t('[data-toggle="collapse"][href="#'+n.id+'"],[data-toggle="collapse"][data-target="#'+n.id+'"]'),this.transitioning=null,this.options.parent?this.$parent=this.getParent():this.addAriaAndCollapsedClass(this.$element,this.$trigger),this.options.toggle&&this.toggle()};o.VERSION="3.3.5",o.TRANSITION_DURATION=350,o.DEFAULTS={toggle:!0},o.prototype.dimension=function(){var t=this.$element.hasClass("width");return t?"width":"height"},o.prototype.show=function(){if(!this.transitioning&&!this.$element.hasClass("in")){var n,a=this.$parent&&this.$parent.children(".panel").children(".in, .collapsing");if(!(a&&a.length&&(n=a.data("bs.collapse"),n&&n.transitioning))){var r=t.Event("show.bs.collapse");if(this.$element.trigger(r),!r.isDefaultPrevented()){a&&a.length&&(e.call(a,"hide"),n||a.data("bs.collapse",null));var i=this.dimension();this.$element.removeClass("collapse").addClass("collapsing")[i](0).attr("aria-expanded",!0),this.$trigger.removeClass("collapsed").attr("aria-expanded",!0),this.transitioning=1;var s=function(){this.$element.removeClass("collapsing").addClass("collapse in")[i](""),this.transitioning=0,this.$element.trigger("shown.bs.collapse")};if(!t.support.transition)return s.call(this);var l=t.camelCase(["scroll",i].join("-"));this.$element.one("bsTransitionEnd",t.proxy(s,this)).emulateTransitionEnd(o.TRANSITION_DURATION)[i](this.$element[0][l])}}}},o.prototype.hide=function(){if(!this.transitioning&&this.$element.hasClass("in")){var n=t.Event("hide.bs.collapse");if(this.$element.trigger(n),!n.isDefaultPrevented()){var e=this.dimension();this.$element[e](this.$element[e]())[0].offsetHeight,this.$element.addClass("collapsing").removeClass("collapse in").attr("aria-expanded",!1),this.$trigger.addClass("collapsed").attr("aria-expanded",!1),this.transitioning=1;var a=function(){this.transitioning=0,this.$element.removeClass("collapsing").addClass("collapse").trigger("hidden.bs.collapse")};return t.support.transition?void this.$element[e](0).one("bsTransitionEnd",t.proxy(a,this)).emulateTransitionEnd(o.TRANSITION_DURATION):a.call(this)}}},o.prototype.toggle=function(){this[this.$element.hasClass("in")?"hide":"show"]()},o.prototype.getParent=function(){return t(this.options.parent).find('[data-toggle="collapse"][data-parent="'+this.options.parent+'"]').each(t.proxy(function(e,o){var a=t(o);this.addAriaAndCollapsedClass(n(a),a)},this)).end()},o.prototype.addAriaAndCollapsedClass=function(t,n){var e=t.hasClass("in");t.attr("aria-expanded",e),n.toggleClass("collapsed",!e).attr("aria-expanded",e)};var a=t.fn.collapse;t.fn.collapse=e,t.fn.collapse.Constructor=o,t.fn.collapse.noConflict=function(){return t.fn.collapse=a,this},t(document).on("click.bs.collapse.data-api",'[data-toggle="collapse"]',function(o){var a=t(this);a.attr("data-target")||o.preventDefault();var r=n(a),i=r.data("bs.collapse"),s=i?"toggle":a.data();e.call(r,s)})}(jQuery),+function(t){"use strict";function n(){var t=document.createElement("bootstrap"),n={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd otransitionend",transition:"transitionend"};for(var e in n)if(void 0!==t.style[e])return{end:n[e]};return!1}t.fn.emulateTransitionEnd=function(n){var e=!1,o=this;t(this).one("bsTransitionEnd",function(){e=!0});var a=function(){e||t(o).trigger(t.support.transition.end)};return setTimeout(a,n),this},t(function(){t.support.transition=n(),t.support.transition&&(t.event.special.bsTransitionEnd={bindType:t.support.transition.end,delegateType:t.support.transition.end,handle:function(n){return t(n.target).is(this)?n.handleObj.handler.apply(this,arguments):void 0}})})}(jQuery),function(t,n,e,o){"use strict";if(!n.history.pushState)return t.fn.smoothState=function(){return this},void(t.fn.smoothState.options={});if(!t.fn.smoothState){var a=t("html, body"),r=n.console,i={debug:!1,anchors:"a",hrefRegex:"",forms:"form",allowFormCaching:!1,repeatDelay:500,blacklist:".no-smoothState",prefetch:!1,prefetchOn:"mouseover touchstart",cacheLength:0,loadingClass:"is-loading",scroll:!0,alterRequest:function(t){return t},onBefore:function(t,n){},onStart:{duration:0,render:function(t){}},onProgress:{duration:0,render:function(t){}},onReady:{duration:0,render:function(t,n){t.html(n)}},onAfter:function(t,n){}},s={isExternal:function(t){var e=t.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);return"string"==typeof e[1]&&e[1].length>0&&e[1].toLowerCase()!==n.location.protocol?!0:"string"==typeof e[2]&&e[2].length>0&&e[2].replace(new RegExp(":("+{"http:":80,"https:":443}[n.location.protocol]+")?$"),"")!==n.location.host},stripHash:function(t){return t.replace(/#.*/,"")},isHash:function(t,e){e=e||n.location.href;var o=t.indexOf("#")>-1,a=s.stripHash(t)===s.stripHash(e);return o&&a},translate:function(n){var e={dataType:"html",type:"GET"};return n="string"==typeof n?t.extend({},e,{url:n}):t.extend({},e,n)},shouldLoadAnchor:function(t,n,e){var a=t.prop("href");return!(s.isExternal(a)||s.isHash(a)||t.is(n)||t.prop("target")||typeof e!==o&&""!==e&&-1===t.prop("href").search(e))},clearIfOverCapacity:function(t,n){return Object.keys||(Object.keys=function(t){var n,e=[];for(n in t)Object.prototype.hasOwnProperty.call(t,n)&&e.push(n);return e}),Object.keys(t).length>n&&(t={}),t},storePageIn:function(n,e,o,a){var r=t("<html></html>").append(t(o));return n[e]={status:"loaded",title:r.find("title").first().text(),html:r.find("#"+a),doc:o},n},triggerAllAnimationEndEvent:function(n,e){e=" "+e||"";var o=0,a="animationstart webkitAnimationStart oanimationstart MSAnimationStart",r="animationend webkitAnimationEnd oanimationend MSAnimationEnd",i="allanimationend",l=function(e){t(e.delegateTarget).is(n)&&(e.stopPropagation(),o++)},d=function(e){t(e.delegateTarget).is(n)&&(e.stopPropagation(),o--,0===o&&n.trigger(i))};n.on(a,l),n.on(r,d),n.on("allanimationend"+e,function(){o=0,s.redraw(n)})},redraw:function(t){t.height()}},l=function(e){if(null!==e.state){var o=n.location.href,a=t("#"+e.state.id),r=a.data("smoothState");r.href===o||s.isHash(o,r.href)||r.load(o,!1)}},d=function(i,l){var d=t(i),c=d.prop("id"),h=null,p=!1,u={},f=n.location.href,g=function(t){t=t||!1,t&&u.hasOwnProperty(t)?delete u[t]:u={},d.data("smoothState").cache=u},m=function(n,e){e=e||t.noop;var o=s.translate(n);if(u=s.clearIfOverCapacity(u,l.cacheLength),!u.hasOwnProperty(o.url)||"undefined"!=typeof o.data){u[o.url]={status:"fetching"};var a=t.ajax(o);a.success(function(t){s.storePageIn(u,o.url,t,c),d.data("smoothState").cache=u}),a.error(function(){u[o.url].status="error"}),e&&a.complete(e)}},v=function(){if(h){var n=t(h,d);if(n.length){var e=n.offset().top;a.scrollTop(e)}h=null}},w=function(o){var i="#"+c,s=u[o]?t(u[o].html.html()):null;s.length?(e.title=u[o].title,d.data("smoothState").href=o,l.loadingClass&&a.removeClass(l.loadingClass),l.onReady.render(d,s),d.one("ss.onReadyEnd",function(){p=!1,l.onAfter(d,s),l.scroll&&v()}),n.setTimeout(function(){d.trigger("ss.onReadyEnd")},l.onReady.duration)):!s&&l.debug&&r?r.warn("No element with an id of "+i+" in response from "+o+" in "+u):n.location=o},y=function(t,e,o){var i=s.translate(t);"undefined"==typeof e&&(e=!0),"undefined"==typeof o&&(o=!0);var h=!1,p=!1,f={loaded:function(){var t=h?"ss.onProgressEnd":"ss.onStartEnd";p&&h?p&&w(i.url):d.one(t,function(){w(i.url),o||g(i.url)}),e&&n.history.pushState({id:c},u[i.url].title,i.url),p&&!o&&g(i.url)},fetching:function(){h||(h=!0,d.one("ss.onStartEnd",function(){l.loadingClass&&a.addClass(l.loadingClass),l.onProgress.render(d),n.setTimeout(function(){d.trigger("ss.onProgressEnd"),p=!0},l.onProgress.duration)})),n.setTimeout(function(){u.hasOwnProperty(i.url)&&f[u[i.url].status]()},10)},error:function(){l.debug&&r?r.log("There was an error loading: "+i.url):n.location=i.url}};u.hasOwnProperty(i.url)||m(i),l.onStart.render(d),n.setTimeout(function(){l.scroll&&a.scrollTop(0),d.trigger("ss.onStartEnd")},l.onStart.duration),f[u[i.url].status]()},b=function(n){var e,o=t(n.currentTarget);s.shouldLoadAnchor(o,l.blacklist,l.hrefRegex)&&!p&&(n.stopPropagation(),e=s.translate(o.prop("href")),e=l.alterRequest(e),m(e))},C=function(n){var e=t(n.currentTarget);if(!n.metaKey&&!n.ctrlKey&&s.shouldLoadAnchor(e,l.blacklist,l.hrefRegex)&&(n.stopPropagation(),n.preventDefault(),!S())){A();var o=s.translate(e.prop("href"));p=!0,h=e.prop("hash"),o=l.alterRequest(o),l.onBefore(e,d),y(o)}},T=function(n){var e=t(n.currentTarget);if(!e.is(l.blacklist)&&(n.preventDefault(),n.stopPropagation(),!S())){A();var a={url:e.prop("action"),data:e.serialize(),type:e.prop("method")};p=!0,a=l.alterRequest(a),"get"===a.type.toLowerCase()&&(a.url=a.url+"?"+a.data),l.onBefore(e,d),y(a,o,l.allowFormCaching)}},E=0,S=function(){var t=null===l.repeatDelay,n=parseInt(Date.now())>E;return!(t||n)},A=function(){E=parseInt(Date.now())+parseInt(l.repeatDelay)},x=function(t){l.anchors&&(t.on("click",l.anchors,C),l.prefetch&&t.on(l.prefetchOn,l.anchors,b)),l.forms&&t.on("submit",l.forms,T)},$=function(){var t=d.prop("class");d.removeClass(t),s.redraw(d),d.addClass(t)};return l=t.extend({},t.fn.smoothState.options,l),null===n.history.state&&n.history.replaceState({id:c},e.title,f),s.storePageIn(u,f,e.documentElement.outerHTML,c),s.triggerAllAnimationEndEvent(d,"ss.onStartEnd ss.onProgressEnd ss.onEndEnd"),x(d),{href:f,cache:u,clear:g,load:y,fetch:m,restartCSSAnimations:$}},c=function(n){return this.each(function(){var e=this.tagName.toLowerCase();this.id&&"body"!==e&&"html"!==e&&!t.data(this,"smoothState")?t.data(this,"smoothState",new d(this,n)):!this.id&&r?r.warn("Every smoothState container needs an id but the following one does not have one:",this):"body"!==e&&"html"!==e||!r||r.warn("The smoothstate container cannot be the "+this.tagName+" tag")})};n.onpopstate=l,t.smoothStateUtility=s,t.fn.smoothState=c,t.fn.smoothState.options=i}}(jQuery,window,document),$(function(){"use strict";var t={prefetch:!0,cacheLength:16,onStart:{duration:150,render:function(t){t.addClass("is-exiting"),n.restartCSSAnimations()}},onReady:{duration:0,render:function(t,n){t.removeClass("is-exiting"),t.html(n)}}},n=$("#main").smoothState(t).data("smoothState")});
+/* ========================================================================
+ * Bootstrap: dropdown.js v3.3.5
+ * http://getbootstrap.com/javascript/#dropdowns
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // DROPDOWN CLASS DEFINITION
+  // =========================
+
+  var backdrop = '.dropdown-backdrop'
+  var toggle   = '[data-toggle="dropdown"]'
+  var Dropdown = function (element) {
+    $(element).on('click.bs.dropdown', this.toggle)
+  }
+
+  Dropdown.VERSION = '3.3.5'
+
+  function getParent($this) {
+    var selector = $this.attr('data-target')
+
+    if (!selector) {
+      selector = $this.attr('href')
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+    }
+
+    var $parent = selector && $(selector)
+
+    return $parent && $parent.length ? $parent : $this.parent()
+  }
+
+  function clearMenus(e) {
+    if (e && e.which === 3) return
+    $(backdrop).remove()
+    $(toggle).each(function () {
+      var $this         = $(this)
+      var $parent       = getParent($this)
+      var relatedTarget = { relatedTarget: this }
+
+      if (!$parent.hasClass('open')) return
+
+      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
+
+      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $this.attr('aria-expanded', 'false')
+      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
+    })
+  }
+
+  Dropdown.prototype.toggle = function (e) {
+    var $this = $(this)
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    clearMenus()
+
+    if (!isActive) {
+      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+        // if mobile we use a backdrop because click events don't delegate
+        $(document.createElement('div'))
+          .addClass('dropdown-backdrop')
+          .insertAfter($(this))
+          .on('click', clearMenus)
+      }
+
+      var relatedTarget = { relatedTarget: this }
+      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $this
+        .trigger('focus')
+        .attr('aria-expanded', 'true')
+
+      $parent
+        .toggleClass('open')
+        .trigger('shown.bs.dropdown', relatedTarget)
+    }
+
+    return false
+  }
+
+  Dropdown.prototype.keydown = function (e) {
+    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
+
+    var $this = $(this)
+
+    e.preventDefault()
+    e.stopPropagation()
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    if (!isActive && e.which != 27 || isActive && e.which == 27) {
+      if (e.which == 27) $parent.find(toggle).trigger('focus')
+      return $this.trigger('click')
+    }
+
+    var desc = ' li:not(.disabled):visible a'
+    var $items = $parent.find('.dropdown-menu' + desc)
+
+    if (!$items.length) return
+
+    var index = $items.index(e.target)
+
+    if (e.which == 38 && index > 0)                 index--         // up
+    if (e.which == 40 && index < $items.length - 1) index++         // down
+    if (!~index)                                    index = 0
+
+    $items.eq(index).trigger('focus')
+  }
+
+
+  // DROPDOWN PLUGIN DEFINITION
+  // ==========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this = $(this)
+      var data  = $this.data('bs.dropdown')
+
+      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
+      if (typeof option == 'string') data[option].call($this)
+    })
+  }
+
+  var old = $.fn.dropdown
+
+  $.fn.dropdown             = Plugin
+  $.fn.dropdown.Constructor = Dropdown
+
+
+  // DROPDOWN NO CONFLICT
+  // ====================
+
+  $.fn.dropdown.noConflict = function () {
+    $.fn.dropdown = old
+    return this
+  }
+
+
+  // APPLY TO STANDARD DROPDOWN ELEMENTS
+  // ===================================
+
+  $(document)
+    .on('click.bs.dropdown.data-api', clearMenus)
+    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
+    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+
+}(jQuery);
+
+/* ========================================================================
+ * Bootstrap: collapse.js v3.3.5
+ * http://getbootstrap.com/javascript/#collapse
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // COLLAPSE PUBLIC CLASS DEFINITION
+  // ================================
+
+  var Collapse = function (element, options) {
+    this.$element      = $(element)
+    this.options       = $.extend({}, Collapse.DEFAULTS, options)
+    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
+                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
+    this.transitioning = null
+
+    if (this.options.parent) {
+      this.$parent = this.getParent()
+    } else {
+      this.addAriaAndCollapsedClass(this.$element, this.$trigger)
+    }
+
+    if (this.options.toggle) this.toggle()
+  }
+
+  Collapse.VERSION  = '3.3.5'
+
+  Collapse.TRANSITION_DURATION = 350
+
+  Collapse.DEFAULTS = {
+    toggle: true
+  }
+
+  Collapse.prototype.dimension = function () {
+    var hasWidth = this.$element.hasClass('width')
+    return hasWidth ? 'width' : 'height'
+  }
+
+  Collapse.prototype.show = function () {
+    if (this.transitioning || this.$element.hasClass('in')) return
+
+    var activesData
+    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
+
+    if (actives && actives.length) {
+      activesData = actives.data('bs.collapse')
+      if (activesData && activesData.transitioning) return
+    }
+
+    var startEvent = $.Event('show.bs.collapse')
+    this.$element.trigger(startEvent)
+    if (startEvent.isDefaultPrevented()) return
+
+    if (actives && actives.length) {
+      Plugin.call(actives, 'hide')
+      activesData || actives.data('bs.collapse', null)
+    }
+
+    var dimension = this.dimension()
+
+    this.$element
+      .removeClass('collapse')
+      .addClass('collapsing')[dimension](0)
+      .attr('aria-expanded', true)
+
+    this.$trigger
+      .removeClass('collapsed')
+      .attr('aria-expanded', true)
+
+    this.transitioning = 1
+
+    var complete = function () {
+      this.$element
+        .removeClass('collapsing')
+        .addClass('collapse in')[dimension]('')
+      this.transitioning = 0
+      this.$element
+        .trigger('shown.bs.collapse')
+    }
+
+    if (!$.support.transition) return complete.call(this)
+
+    var scrollSize = $.camelCase(['scroll', dimension].join('-'))
+
+    this.$element
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
+  }
+
+  Collapse.prototype.hide = function () {
+    if (this.transitioning || !this.$element.hasClass('in')) return
+
+    var startEvent = $.Event('hide.bs.collapse')
+    this.$element.trigger(startEvent)
+    if (startEvent.isDefaultPrevented()) return
+
+    var dimension = this.dimension()
+
+    this.$element[dimension](this.$element[dimension]())[0].offsetHeight
+
+    this.$element
+      .addClass('collapsing')
+      .removeClass('collapse in')
+      .attr('aria-expanded', false)
+
+    this.$trigger
+      .addClass('collapsed')
+      .attr('aria-expanded', false)
+
+    this.transitioning = 1
+
+    var complete = function () {
+      this.transitioning = 0
+      this.$element
+        .removeClass('collapsing')
+        .addClass('collapse')
+        .trigger('hidden.bs.collapse')
+    }
+
+    if (!$.support.transition) return complete.call(this)
+
+    this.$element
+      [dimension](0)
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
+  }
+
+  Collapse.prototype.toggle = function () {
+    this[this.$element.hasClass('in') ? 'hide' : 'show']()
+  }
+
+  Collapse.prototype.getParent = function () {
+    return $(this.options.parent)
+      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
+      .each($.proxy(function (i, element) {
+        var $element = $(element)
+        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
+      }, this))
+      .end()
+  }
+
+  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
+    var isOpen = $element.hasClass('in')
+
+    $element.attr('aria-expanded', isOpen)
+    $trigger
+      .toggleClass('collapsed', !isOpen)
+      .attr('aria-expanded', isOpen)
+  }
+
+  function getTargetFromTrigger($trigger) {
+    var href
+    var target = $trigger.attr('data-target')
+      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
+
+    return $(target)
+  }
+
+
+  // COLLAPSE PLUGIN DEFINITION
+  // ==========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.collapse')
+      var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
+
+      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
+      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  var old = $.fn.collapse
+
+  $.fn.collapse             = Plugin
+  $.fn.collapse.Constructor = Collapse
+
+
+  // COLLAPSE NO CONFLICT
+  // ====================
+
+  $.fn.collapse.noConflict = function () {
+    $.fn.collapse = old
+    return this
+  }
+
+
+  // COLLAPSE DATA-API
+  // =================
+
+  $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
+    var $this   = $(this)
+
+    if (!$this.attr('data-target')) e.preventDefault()
+
+    var $target = getTargetFromTrigger($this)
+    var data    = $target.data('bs.collapse')
+    var option  = data ? 'toggle' : $this.data()
+
+    Plugin.call($target, option)
+  })
+
+}(jQuery);
+
+/* ========================================================================
+ * Bootstrap: transition.js v3.3.5
+ * http://getbootstrap.com/javascript/#transitions
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+  // ============================================================
+
+  function transitionEnd() {
+    var el = document.createElement('bootstrap')
+
+    var transEndEventNames = {
+      WebkitTransition : 'webkitTransitionEnd',
+      MozTransition    : 'transitionend',
+      OTransition      : 'oTransitionEnd otransitionend',
+      transition       : 'transitionend'
+    }
+
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return { end: transEndEventNames[name] }
+      }
+    }
+
+    return false // explicit for ie8 (  ._.)
+  }
+
+  // http://blog.alexmaccaw.com/css-transitions
+  $.fn.emulateTransitionEnd = function (duration) {
+    var called = false
+    var $el = this
+    $(this).one('bsTransitionEnd', function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+    setTimeout(callback, duration)
+    return this
+  }
+
+  $(function () {
+    $.support.transition = transitionEnd()
+
+    if (!$.support.transition) return
+
+    $.event.special.bsTransitionEnd = {
+      bindType: $.support.transition.end,
+      delegateType: $.support.transition.end,
+      handle: function (e) {
+        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
+      }
+    }
+  })
+
+}(jQuery);
+
+/*!
+ * smoothState.js is jQuery plugin that progressively enhances
+ * page loads to behave more like a single-page application.
+ *
+ * @author  Miguel Ángel Pérez   reachme@miguel-perez.com
+ * @see     http://smoothstate.com
+ *
+ */
+!function(t){"use strict";"object"==typeof module&&"object"==typeof module.exports?t(require("jquery"),window,document):t(jQuery,window,document)}(function(t,e,n,o){"use strict";if(!e.history.pushState)return t.fn.smoothState=function(){return this},void(t.fn.smoothState.options={});if(!t.fn.smoothState){var r=t("html, body"),a=e.console,i={debug:!1,anchors:"a",hrefRegex:"",forms:"form",allowFormCaching:!1,repeatDelay:500,blacklist:".no-smoothState",prefetch:!1,prefetchOn:"mouseover touchstart",prefetchBlacklist:".no-prefetch",cacheLength:0,loadingClass:"is-loading",scroll:!0,alterRequest:function(t){return t},alterChangeState:function(t,e,n){return t},onBefore:function(t,e){},onStart:{duration:0,render:function(t){}},onProgress:{duration:0,render:function(t){}},onReady:{duration:0,render:function(t,e){t.html(e)}},onAfter:function(t,e){}},s={isExternal:function(t){var n=t.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);return"string"==typeof n[1]&&n[1].length>0&&n[1].toLowerCase()!==e.location.protocol?!0:"string"==typeof n[2]&&n[2].length>0&&n[2].replace(new RegExp(":("+{"http:":80,"https:":443}[e.location.protocol]+")?$"),"")!==e.location.host},stripHash:function(t){return t.replace(/#.*/,"")},isHash:function(t,n){n=n||e.location.href;var o=t.indexOf("#")>-1,r=s.stripHash(t)===s.stripHash(n);return o&&r},translate:function(e){var n={dataType:"html",type:"GET"};return e="string"==typeof e?t.extend({},n,{url:e}):t.extend({},n,e)},shouldLoadAnchor:function(t,e,n){var r=t.prop("href");return!(s.isExternal(r)||s.isHash(r)||t.is(e)||t.prop("target")||typeof n!==o&&""!==n&&-1===t.prop("href").search(n))},clearIfOverCapacity:function(t,e){return Object.keys||(Object.keys=function(t){var e,n=[];for(e in t)Object.prototype.hasOwnProperty.call(t,e)&&n.push(e);return n}),Object.keys(t).length>e&&(t={}),t},storePageIn:function(e,n,o,r,a){var i=t("<html></html>").append(t(o));return e[n]={status:"loaded",title:i.find("title").first().text(),html:i.find("#"+r),doc:o,state:a},e},triggerAllAnimationEndEvent:function(e,n){n=" "+n||"";var o=0,r="animationstart webkitAnimationStart oanimationstart MSAnimationStart",a="animationend webkitAnimationEnd oanimationend MSAnimationEnd",i="allanimationend",l=function(n){t(n.delegateTarget).is(e)&&(n.stopPropagation(),o++)},u=function(n){t(n.delegateTarget).is(e)&&(n.stopPropagation(),o--,0===o&&e.trigger(i))};e.on(r,l),e.on(a,u),e.on("allanimationend"+n,function(){o=0,s.redraw(e)})},redraw:function(t){t.height()}},l=function(n){if(null!==n.state){var o=e.location.href,r=t("#"+n.state.id),a=r.data("smoothState"),i=a.href!==o&&!s.isHash(o,a.href),l=n.state!==a.cache[a.href].state;(i||l)&&(l&&a.clear(a.href),a.load(o,!1))}},u=function(i,l){var u=t(i),c=u.prop("id"),f=null,h=!1,d={},p={},g=e.location.href,m=function(t){t=t||!1,t&&d.hasOwnProperty(t)?delete d[t]:d={},u.data("smoothState").cache=d},y=function(e,n){n=n||t.noop;var o=s.translate(e);if(d=s.clearIfOverCapacity(d,l.cacheLength),!d.hasOwnProperty(o.url)||"undefined"!=typeof o.data){d[o.url]={status:"fetching"};var r=t.ajax(o);r.done(function(t){s.storePageIn(d,o.url,t,c),u.data("smoothState").cache=d}),r.fail(function(){d[o.url].status="error"}),n&&r.always(n)}},v=function(){if(f){var e=t(f,u);if(e.length){var n=e.offset().top;r.scrollTop(n)}f=null}},S=function(o){var i="#"+c,s=d[o]?t(d[o].html.html()):null;s.length?(n.title=d[o].title,u.data("smoothState").href=o,l.loadingClass&&r.removeClass(l.loadingClass),l.onReady.render(u,s),u.one("ss.onReadyEnd",function(){h=!1,l.onAfter(u,s),l.scroll&&v(),O(u)}),e.setTimeout(function(){u.trigger("ss.onReadyEnd")},l.onReady.duration)):!s&&l.debug&&a?a.warn("No element with an id of "+i+" in response from "+o+" in "+d):e.location=o},w=function(t,n,o){var i=s.translate(t);"undefined"==typeof n&&(n=!0),"undefined"==typeof o&&(o=!0);var f=!1,h=!1,g={loaded:function(){var t=f?"ss.onProgressEnd":"ss.onStartEnd";h&&f?h&&S(i.url):u.one(t,function(){S(i.url),o||m(i.url)}),n&&(p=l.alterChangeState({id:c},d[i.url].title,i.url),d[i.url].state=p,e.history.pushState(p,d[i.url].title,i.url)),h&&!o&&m(i.url)},fetching:function(){f||(f=!0,u.one("ss.onStartEnd",function(){l.loadingClass&&r.addClass(l.loadingClass),l.onProgress.render(u),e.setTimeout(function(){u.trigger("ss.onProgressEnd"),h=!0},l.onProgress.duration)})),e.setTimeout(function(){d.hasOwnProperty(i.url)&&g[d[i.url].status]()},10)},error:function(){l.debug&&a?a.log("There was an error loading: "+i.url):e.location=i.url}};d.hasOwnProperty(i.url)||y(i),l.onStart.render(u),e.setTimeout(function(){l.scroll&&r.scrollTop(0),u.trigger("ss.onStartEnd")},l.onStart.duration),g[d[i.url].status]()},E=function(e){var n,o=t(e.currentTarget);s.shouldLoadAnchor(o,l.blacklist,l.hrefRegex)&&!h&&(e.stopPropagation(),n=s.translate(o.prop("href")),n=l.alterRequest(n),y(n))},b=function(e){var n=t(e.currentTarget);if(!e.metaKey&&!e.ctrlKey&&s.shouldLoadAnchor(n,l.blacklist,l.hrefRegex)&&(e.stopPropagation(),e.preventDefault(),!T())){A();var o=s.translate(n.prop("href"));h=!0,f=n.prop("hash"),o=l.alterRequest(o),l.onBefore(n,u),w(o)}},C=function(e){var n=t(e.currentTarget);if(!n.is(l.blacklist)&&(e.preventDefault(),e.stopPropagation(),!T())){A();var r={url:n.prop("action"),data:n.serialize(),type:n.prop("method")};h=!0,r=l.alterRequest(r),"get"===r.type.toLowerCase()&&(r.url=r.url+"?"+r.data),l.onBefore(n,u),w(r,o,l.allowFormCaching)}},P=0,T=function(){var t=null===l.repeatDelay,e=parseInt(Date.now())>P;return!(t||e)},A=function(){P=parseInt(Date.now())+parseInt(l.repeatDelay)},O=function(t){l.anchors&&l.prefetch&&t.find(l.anchors).not(l.prefetchBlacklist).on(l.prefetchOn,null,E)},x=function(t){l.anchors&&(t.on("click",l.anchors,b),O(t)),l.forms&&t.on("submit",l.forms,C)},R=function(){var t=u.prop("class");u.removeClass(t),s.redraw(u),u.addClass(t)};return l=t.extend({},t.fn.smoothState.options,l),null===e.history.state?(p=l.alterChangeState({id:c},n.title,g),e.history.replaceState(p,n.title,g)):p={},s.storePageIn(d,g,n.documentElement.outerHTML,c,p),s.triggerAllAnimationEndEvent(u,"ss.onStartEnd ss.onProgressEnd ss.onEndEnd"),x(u),{href:g,cache:d,clear:m,load:w,fetch:y,restartCSSAnimations:R}},c=function(e){return this.each(function(){var n=this.tagName.toLowerCase();this.id&&"body"!==n&&"html"!==n&&!t.data(this,"smoothState")?t.data(this,"smoothState",new u(this,e)):!this.id&&a?a.warn("Every smoothState container needs an id but the following one does not have one:",this):"body"!==n&&"html"!==n||!a||a.warn("The smoothstate container cannot be the "+this.tagName+" tag")})};e.onpopstate=l,t.smoothStateUtility=s,t.fn.smoothState=c,t.fn.smoothState.options=i}});
+
+// Smooth page transitions
+// TODO: If url is the same, don't animate
+
+$(function(){
+  'use strict';
+  var options = {
+    prefetch: true,
+    cacheLength: 16,
+    onStart: {
+      duration: 150, // Duration of our animation
+      render: function ($container) {
+        // Add your CSS animation reversing class
+        $container.addClass('is-exiting');
+
+        // Restart your animation
+        smoothState.restartCSSAnimations();
+      }
+    },
+    onReady: {
+      duration: 0,
+      render: function ($container, $newContent) {
+        // Remove your CSS animation reversing class
+        $container.removeClass('is-exiting');
+
+        // Inject the new content
+        $container.html($newContent);
+      }
+    }
+  },
+  smoothState = $('#main').smoothState(options).data('smoothState');
+});
