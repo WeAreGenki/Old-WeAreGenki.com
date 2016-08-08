@@ -1,17 +1,1 @@
-/* Theme variables */
-/* Menus */
-/* Colours */
-/* Special styles for old Internet Explorer browsers < IE9 */
-body {
-  overflow: auto; }
-
-#dope a:hover {
-  text-decoration: underline; }
-
-.navbar-header > a,
-.navbar-nav > li > a,
-.dropdown-menu > li > a,
-h1, h2, h3, h4, p,
-footer {
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=hIEfix.png,sizingMethod=crop);
-  zoom: 1; }
+body{overflow:auto}#dope a:hover{text-decoration:underline}.dropdown-menu>li>a,.navbar-header>a,.navbar-nav>li>a,footer,h1,h2,h3,h4,p{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=hIEfix.png,sizingMethod=crop);zoom:1}
