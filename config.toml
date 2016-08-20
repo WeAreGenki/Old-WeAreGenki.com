@@ -1,6 +1,6 @@
 # TODO: Put everything into a git repo - remember to include theme as a sub-repo or something
 
-baseurl = "http://wearegenki.com"
+baseurl = "https://wearegenki.com"
 languageCode = "en-au"
 
 title = "We Are Genki"
