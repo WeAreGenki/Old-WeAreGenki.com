@@ -9,6 +9,7 @@ theme = "wearegenki"
 uglyUrls = true
 #canonifyurls = true
 disableRSS = true
+googleAnalytics = "UA-60278224-1"
 
 [params]
   slogan = "Customer Experience Consultants"
