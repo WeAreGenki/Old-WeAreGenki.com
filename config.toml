@@ -7,6 +7,8 @@ theme = "wearegenki"
 uglyUrls = true
 #canonifyurls = true
 disableRSS = true
+hasCJKLanguage = true
+disableHugoGeneratorInject = true
 googleAnalytics = "UA-60278224-1"
 
 [params]
