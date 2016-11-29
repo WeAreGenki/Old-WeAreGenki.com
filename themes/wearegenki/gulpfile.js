@@ -10,7 +10,6 @@ const gulpif = require('gulp-if');
 // Icons
 const svgmin = require('gulp-svgmin');
 const iconfont = require('gulp-iconfont');
-// Recommended by gulp-iconfont for 'watch', what's it for and could it be used by other tasks?
 const runTimestamp = Math.round(Date.now() / 1000);
 const consolidate = require('gulp-consolidate');
 // CSS
@@ -105,7 +104,7 @@ gulp.task('css', ['init-hugo', 'icon-font'], () =>
       // log: true // See which media queries where processed
     })))
     .pipe(gulpif(production, autoprefixer({
-      browsers: ['> 5% in AU'],
+      browsers: ['> 1% in AU'],
       cascade: false,
     })))
     .pipe(gulpif(production, nano())) // New experimental minification
