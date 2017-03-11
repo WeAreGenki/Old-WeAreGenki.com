@@ -20,4 +20,6 @@ Licenced ISC so feel free to use any part of it as you wish. See [LICENCE.md](ht
 
 Proudly made by the team at We Are Genki &lt;<hello@wearegenki.com>&gt;.
 
+-----
+
 &copy; We Are Genki
