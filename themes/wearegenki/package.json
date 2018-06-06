@@ -18,7 +18,7 @@
     "gulp-group-css-media-queries": "1.2.2",
     "gulp-gzip": "1.4.2",
     "gulp-htmlmin": "4.0.0",
-    "gulp-iconfont": "9.1.0",
+    "gulp-iconfont": "9.2.0",
     "gulp-if": "2.0.2",
     "gulp-md5-plus": "1.0.3",
     "gulp-sass": "4.0.1",

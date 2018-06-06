@@ -1470,9 +1470,9 @@ gulp-htmlmin@4.0.0:
     readable-stream "^2.0.2"
     tryit "^1.0.1"
 
-gulp-iconfont@9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/gulp-iconfont/-/gulp-iconfont-9.1.0.tgz#dc800e0306c5263b0d3d4b378f2453db0da549d1"
+gulp-iconfont@9.2.0:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/gulp-iconfont/-/gulp-iconfont-9.2.0.tgz#e3a5f5ad2247cf6851d708506cf724885e782d8e"
   dependencies:
     gulp-cond "^1.0.0"
     gulp-spawn "^0.4.0"
