@@ -1,5 +1,7 @@
 'use strict';
 
+// NOTE: Hugo must be installed to /usr/local/bin/hugo
+
 // Tools
 const gulp = require('gulp');
 const del = require('del');

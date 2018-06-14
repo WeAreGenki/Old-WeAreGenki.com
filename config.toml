@@ -6,7 +6,7 @@ theme = "wearegenki"
 
 uglyUrls = true
 #canonifyurls = true
-disableRSS = true
+disableKinds=["RSS"]
 hasCJKLanguage = true
 disableHugoGeneratorInject = true
 googleAnalytics = "UA-60278224-1"
