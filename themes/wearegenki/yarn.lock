@@ -1966,12 +1966,12 @@ gulp-svgicons2svgfont@^5.0.1:
     svgicons2svgfont "^9.0.3"
     vinyl "^2.1.0"
 
-gulp-svgmin@1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/gulp-svgmin/-/gulp-svgmin-1.2.4.tgz#a4aa9e2615cf1105ef555aea86e86296cc20e273"
+gulp-svgmin@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-svgmin/-/gulp-svgmin-2.0.0.tgz#afee16f9848fd1e77f5eb5921214830d96933c3c"
   dependencies:
-    gulp-util "^3.0.4"
-    svgo "^0.7.0"
+    plugin-error "^1.0.1"
+    svgo "^1.0.5"
 
 gulp-ttf2eot@^1.1.1:
   version "1.1.2"
@@ -2021,7 +2021,7 @@ gulp-uncss@1.0.6:
     object-assign "^4.0.1"
     uncss "^0.14.1"
 
-gulp-util@3.0.8, gulp-util@^3.0.0, gulp-util@^3.0.4, gulp-util@^3.0.6, gulp-util@^3.0.7, gulp-util@~3.0.6:
+gulp-util@3.0.8, gulp-util@^3.0.0, gulp-util@^3.0.6, gulp-util@^3.0.7, gulp-util@~3.0.6:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -5268,7 +5268,7 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-svgo@^1.0.0:
+svgo@^1.0.0, svgo@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.0.5.tgz#7040364c062a0538abacff4401cea6a26a7a389a"
   dependencies:
