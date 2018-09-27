@@ -34,7 +34,10 @@
     "gulp-util": "3.0.8",
     "lodash": "4.17.11",
     "node-notifier": "5.2.1",
-    "snyk": "^1.85.0"
+    "snyk": "^1.99.1"
   },
-  "snyk": true
+  "snyk": true,
+  "devDependencies": {
+    "@wearegenki/renovate-config": "^1.0.0"
+  }
 }
