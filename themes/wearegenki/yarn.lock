@@ -21,7 +21,7 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@wearegenki/renovate-config@^1.0.0":
+"@wearegenki/renovate-config@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@wearegenki/renovate-config/-/renovate-config-1.0.0.tgz#3b2665c76d978a0a56a76093b2657f0c4579bf7b"
   integrity sha512-gAZGXBe9VJ4/H7Oj75//HSLVrPZv1gp06CaZJGpzpDYfWL3MgQzQlzGFn28I9FS7jYahC1zfadL+GuHua3evVQ==

@@ -38,6 +38,6 @@
   },
   "snyk": true,
   "devDependencies": {
-    "@wearegenki/renovate-config": "^1.0.0"
+    "@wearegenki/renovate-config": "1.0.0"
   }
 }
