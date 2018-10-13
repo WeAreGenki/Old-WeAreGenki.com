@@ -1217,6 +1217,13 @@ debug@2, debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3:
   dependencies:
     ms "2.0.0"
 
+debug@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
+  integrity sha1-eYVQkLosTjEVzH2HaUkdWPBJE1E=
+  dependencies:
+    ms "0.7.2"
+
 debug@3.1.0, debug@3.X, debug@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
@@ -2206,12 +2213,12 @@ gulp-htmlmin@5.0.1:
     plugin-error "^1.0.1"
     through2 "^2.0.3"
 
-gulp-iconfont@10.0.1:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/gulp-iconfont/-/gulp-iconfont-10.0.1.tgz#33ed0570926de6f7199008321e20933721158389"
-  integrity sha512-Z4HZUVFMMm7geu5XnXlIrCWFcJ4gLD54bTcTreiOUZbqUEwJO6SAE1V3kvKqgQJo5CZzm25XhtLDyyoSdSbs3Q==
+gulp-iconfont@10.0.2:
+  version "10.0.2"
+  resolved "https://registry.yarnpkg.com/gulp-iconfont/-/gulp-iconfont-10.0.2.tgz#3e1fd02836acbe1a7ffaf94d5478484d3378ace8"
+  integrity sha512-i7+SVMbnIOPxZ1Jo0oR3S2VcUH1WZE9qDZdEGa8UQLVp1rlTHNaH7yJzSo1LJ5Q0U3rD7empUHYv3PIQXYKlJg==
   dependencies:
-    gulp-spawn "^0.4.0"
+    gulp-spawn "^0.4.4"
     gulp-svg2ttf "^2.0.0"
     gulp-svgicons2svgfont "^5.0.1"
     gulp-ttf2eot "^1.1.1"
@@ -2276,13 +2283,13 @@ gulp-sourcemaps@2.6.4:
     strip-bom-string "1.X"
     through2 "2.X"
 
-gulp-spawn@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/gulp-spawn/-/gulp-spawn-0.4.0.tgz#9b5511b523f4f3c84145ab8a0be49d735afe6aa8"
-  integrity sha1-m1URtSP088hBRauKC+Sdc1r+aqg=
+gulp-spawn@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/gulp-spawn/-/gulp-spawn-0.4.4.tgz#67b41eafb4280f35bb9b1c8e174d644f8c640851"
+  integrity sha512-I9vsYBL3WCm0dszPo54T1laU4BFdWibIPx+5j2l41roQ31q83jKKgCA3X167sR+GezRM3vni0AlBCw8GCddcXQ==
   dependencies:
-    gulp-util "~2.2.14"
-    plexer "0.0.1"
+    plexer "^1.0.2"
+    plugin-error "^1.0.1"
 
 gulp-svg2ttf@^2.0.0:
   version "2.0.1"
@@ -3103,7 +3110,7 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-isstream@~0.1.2:
+isstream@^0.1.2, isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
@@ -3818,6 +3825,11 @@ mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
+ms@0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
+  integrity sha1-riXPJRKziFodldfwN4aNhDESR2U=
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -4422,10 +4434,14 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-plexer@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/plexer/-/plexer-0.0.1.tgz#6982db8d1cc83c88af608acd9cea5d29208fb99f"
-  integrity sha1-aYLbjRzIPIivYIrNnOpdKSCPuZ8=
+plexer@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/plexer/-/plexer-1.0.2.tgz#a8549ecbcda551043540cab765d723af037fc067"
+  integrity sha512-YvKSr441x/P9tNuNHUyDWGUSnzsCNXox425j14/3+YcwMyVnJs11qiz/ZWti/y+UNhCFu4SkDSelHYY5hXpifQ==
+  dependencies:
+    debug "2.6.1"
+    isstream "^0.1.2"
+    readable-stream "^2.0.2"
 
 plugin-error@^0.1.2:
   version "0.1.2"
