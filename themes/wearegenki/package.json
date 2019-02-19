@@ -27,7 +27,7 @@
     "gulp-if": "2.0.2",
     "gulp-md5-plus": "1.0.3",
     "gulp-sass": "4.0.2",
-    "gulp-sourcemaps": "2.6.4",
+    "gulp-sourcemaps": "2.6.5",
     "gulp-svgmin": "2.1.0",
     "gulp-uglify": "3.0.1",
     "gulp-uncss": "1.0.6",
