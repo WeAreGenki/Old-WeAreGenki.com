@@ -26,7 +26,7 @@
     "gulp-iconfont": "10.0.2",
     "gulp-if": "2.0.2",
     "gulp-md5-plus": "1.0.3",
-    "gulp-sass": "4.0.2",
+    "gulp-sass": "4.1.0",
     "gulp-sourcemaps": "2.6.4",
     "gulp-svgmin": "2.1.0",
     "gulp-uglify": "3.0.1",
